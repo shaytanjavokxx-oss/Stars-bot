@@ -1,10 +1,9 @@
 import asyncio
-import os
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-TOKEN = os.environ.get("8008398482:AAGMlJYAQj3NuM0NnrkFx7-PPSPO56YBKvA")
+TOKEN = "8008398482:AAGMlJYAQj3NuM0NnrkFx7-PPSPO56YBKvA"
 ADMIN_ID = 7132963801
 
 bot = Bot(token=TOKEN)
@@ -50,8 +49,7 @@ async def premium_menu(callback: types.CallbackQuery):
         [InlineKeyboardButton(text="🔙 Orqaga", callback_data="back")],
     ])
     await callback.message.edit_text(
-        "💎 Telegram Premium\n\n"
-        "Profilingizga kirib olib berish narxi:",
+        "💎 Telegram Premium\n\nProfilingizga kirib olib berish:",
         reply_markup=keyboard
     )
 
@@ -63,8 +61,7 @@ async def gift_menu(callback: types.CallbackQuery):
         [InlineKeyboardButton(text="🔙 Orqaga", callback_data="back")],
     ])
     await callback.message.edit_text(
-        "🎁 Premium Sovg'a\n\n"
-        "Profilingizga kirmasdan sovg'a qilish:",
+        "🎁 Premium Sovg'a\n\nKirmasdan sovg'a qilish:",
         reply_markup=keyboard
     )
 
@@ -142,7 +139,7 @@ async def reject_order(callback: types.CallbackQuery):
     user_id = int(callback.data.split("_")[1])
     await bot.send_message(user_id,
         "❌ To'lovingiz tasdiqlanmadi.\n"
-        "Muammo bo'lsa admin bilan bog'laning: @jony_xD"
+        "Muammo bo'lsa: @jony_xD"
     )
     await callback.message.edit_text("❌ Rad etildi!")
 
@@ -152,7 +149,7 @@ async def contact(callback: types.CallbackQuery):
         "📞 Aloqa:\n\n"
         "👤 Admin: @jony_xD\n"
         "⏰ Ish vaqti: 9:00 — 22:00\n\n"
-        "Savollaringiz bo'lsa murojaat qiling!"
+        "🔜 Tez kunda yangi xizmatlar!"
     )
 
 @dp.callback_query(lambda c: c.data == "back")
